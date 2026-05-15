@@ -1,2 +1,4 @@
 mqtt-publisher/Cargo.lock
 mqtt-publisher/target/
+env/
+.env

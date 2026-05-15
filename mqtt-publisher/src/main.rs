@@ -65,7 +65,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // topics
 
-    for topic in ["/request/qos", "request/delay", "request/messagesize", "request/go"] {
+    for topic in ["request/qos", "request/delay", "request/messagesize", "request/go"] {
         client.subscribe(topic, QoS::AtLeastOnce).await?;
     }
 
