@@ -34,7 +34,7 @@ fn now_us() -> u128 {
 
 // entry point
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error:Error>> {
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // connect to local broker
     let mut opts = MqttOptions::new("rust-publisher", "localhost", 1883);
     opts.set_keep_alive(Duration::from_secs(30));
@@ -44,7 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error:Error>> {
     let (client, mut eventloop) = AsyncClient::new(opts, 65_535);
 
     // spawn eventloop
-    let (mst_tx, mut msg_rx) = mpsc::unbounded_channel::<(String, String)>();
+    let (msg_tx, mut msg_rx) = mpsc::unbounded_channel::<(String, String)>();
 
     tokio::spawn(async move {
         loop {
@@ -121,7 +121,7 @@ async fn main() -> Result<(), Box<dyn std::error:Error>> {
 async fn run_publish_burst(
     client: &AsyncClient,
     cfg:&RunConfig,
-) -> Result<(), Box<dyn std::error:Error>> {
+) -> Result<(), Box<dyn std::error::Error>> {
     let pub_topic = format!("counter/{}/{}/{}", cfg.qos, cfg.delay_ms, cfg.message_size);
     let qos = to_qos(cfg.qos);
     let padding = "x".repeat(cfg.message_size);
