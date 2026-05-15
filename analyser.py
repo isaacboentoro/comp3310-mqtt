@@ -5,6 +5,7 @@ Each test: configures the Rust publisher, then collects counter messages for 30s
 """
 
 import paho.mqtt.client as mqtt
+import os
 import time
 import json
 import statistics
@@ -12,8 +13,23 @@ import sys
 from itertools import product
 
 # ── parameters ──────────────────────────────────────────────────────────────
-BROKER_HOST = "localhost"
-BROKER_PORT = 1883
+def _load_dotenv(path: str = ".env"):
+    """Minimal .env loader (no external dependency needed)."""
+    if not os.path.isfile(path):
+        return
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            if key.strip() not in os.environ:
+                os.environ[key.strip()] = val.strip()
+
+_load_dotenv()
+
+BROKER_HOST = os.getenv("MQTT_HOST", "localhost")
+BROKER_PORT = int(os.getenv("MQTT_PORT", "1883"))
 TEST_DURATION = 30  # seconds per test
 PUB_QOS_VALUES = [0, 1, 2]
 DELAY_VALUES = [0, 100]        # ms
