@@ -35,7 +35,6 @@ fn now_us() -> u128 {
 // entry point
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // connect to local broker
     let mut opts = MqttOptions::new("rust-publisher", "localhost", 1883);
     opts.set_keep_alive(Duration::from_secs(30));
 
