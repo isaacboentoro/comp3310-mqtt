@@ -2,3 +2,5 @@ mqtt-publisher/Cargo.lock
 mqtt-publisher/target/
 env/
 .env
+mqtt-analyser/target/
+mqtt-analyser/Cargo.lock
