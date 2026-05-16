@@ -2,12 +2,1540 @@
   {
     "pub_qos": 0,
     "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 748639,
+    "throughput_msg_s": 21389.0,
+    "loss_pct": 92.92,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": -58195,
+    "latency_us_max": 3620498,
+    "latency_us_avg": 2324597.2,
+    "latency_us_p50": 2252696.0,
+    "latency_us_p99": 3360169.0,
+    "sys_before": {
+      "captured_at_s": 1778913824,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778913854,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 718718,
+    "throughput_msg_s": 20533.9,
+    "loss_pct": 90.47,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.004,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 30933,
+    "latency_us_max": 5447195,
+    "latency_us_avg": 3026911.8,
+    "latency_us_p50": 2855730.5,
+    "latency_us_p99": 5219132.8,
+    "sys_before": {
+      "captured_at_s": 1778913864,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778913894,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 841584,
+    "throughput_msg_s": 24044.2,
+    "loss_pct": 91.63,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 107322,
+    "latency_us_max": 4461264,
+    "latency_us_avg": 2178565.3,
+    "latency_us_p50": 1742222.5,
+    "latency_us_p99": 4202418.0,
+    "sys_before": {
+      "captured_at_s": 1778913904,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778913934,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 34601,
+    "throughput_msg_s": 988.5,
+    "loss_pct": 99.64,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.016,
+    "latency_us_min": 29572,
+    "latency_us_max": 2863027,
+    "latency_us_avg": 1771014.9,
+    "latency_us_p50": 1735933.0,
+    "latency_us_p99": 2694425.0,
+    "sys_before": {
+      "captured_at_s": 1778913934,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778913974,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 28846,
+    "throughput_msg_s": 824.1,
+    "loss_pct": 99.7,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 62838,
+    "latency_us_max": 3972017,
+    "latency_us_avg": 2214582.9,
+    "latency_us_p50": 2102659.0,
+    "latency_us_p99": 3738053.7,
+    "sys_before": {
+      "captured_at_s": 1778913974,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914014,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 40701,
+    "throughput_msg_s": 1162.8,
+    "loss_pct": 99.57,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 88721,
+    "latency_us_max": 3322714,
+    "latency_us_avg": 2090996.4,
+    "latency_us_p50": 2086367.0,
+    "latency_us_p99": 3036659.0,
+    "sys_before": {
+      "captured_at_s": 1778914014,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914054,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 8788,
+    "throughput_msg_s": 251.1,
+    "loss_pct": 99.89,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.004,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 78340,
+    "latency_us_max": 3623954,
+    "latency_us_avg": 2170890.9,
+    "latency_us_p50": 1992192.5,
+    "latency_us_p99": 3433806.4,
+    "sys_before": {
+      "captured_at_s": 1778914054,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914094,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 7970,
+    "throughput_msg_s": 227.7,
+    "loss_pct": 99.91,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.003,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 55734,
+    "latency_us_max": 4858545,
+    "latency_us_avg": 2710447.0,
+    "latency_us_p50": 2632786.5,
+    "latency_us_p99": 4756270.2,
+    "sys_before": {
+      "captured_at_s": 1778914094,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914124,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 6536,
+    "throughput_msg_s": 186.7,
+    "loss_pct": 99.92,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.004,
+    "gap_stddev_ms": 0.002,
+    "latency_us_min": 7707,
+    "latency_us_max": 7721100,
+    "latency_us_avg": 3215166.2,
+    "latency_us_p50": 2766772.5,
+    "latency_us_p99": 7272225.1,
+    "sys_before": {
+      "captured_at_s": 1778914134,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914164,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 0,
     "delay_ms": 100,
     "msg_size": 1,
-    "messages_received": 0,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
     "messages_expected": 300,
-    "elapsed_s": 40.0,
-    "throughput_msg_s": 0.0,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.392,
+    "gap_stddev_ms": 0.507,
+    "latency_us_min": -6628,
+    "latency_us_max": 422095,
+    "latency_us_avg": 196794.2,
+    "latency_us_p50": 200348.0,
+    "latency_us_p99": 385790.7,
+    "sys_before": {
+      "captured_at_s": 1778914174,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914204,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.376,
+    "gap_stddev_ms": 0.518,
+    "latency_us_min": 2097,
+    "latency_us_max": 398832,
+    "latency_us_avg": 181903.7,
+    "latency_us_p50": 179647.0,
+    "latency_us_p99": 357569.8,
+    "sys_before": {
+      "captured_at_s": 1778914204,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914244,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.379,
+    "gap_stddev_ms": 0.509,
+    "latency_us_min": -8364,
+    "latency_us_max": 370478,
+    "latency_us_avg": 166205.2,
+    "latency_us_p50": 163660.0,
+    "latency_us_p99": 351353.1,
+    "sys_before": {
+      "captured_at_s": 1778914244,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914284,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.366,
+    "gap_stddev_ms": 0.505,
+    "latency_us_min": 2503,
+    "latency_us_max": 170993,
+    "latency_us_avg": 105625.3,
+    "latency_us_p50": 115885.5,
+    "latency_us_p99": 139202.1,
+    "sys_before": {
+      "captured_at_s": 1778914284,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914324,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.359,
+    "gap_stddev_ms": 0.505,
+    "latency_us_min": -1125,
+    "latency_us_max": 173291,
+    "latency_us_avg": 94077.1,
+    "latency_us_p50": 102206.5,
+    "latency_us_p99": 133730.8,
+    "sys_before": {
+      "captured_at_s": 1778914324,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914354,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.359,
+    "gap_stddev_ms": 0.49,
+    "latency_us_min": -396,
+    "latency_us_max": 171747,
+    "latency_us_avg": 98398.7,
+    "latency_us_p50": 105509.0,
+    "latency_us_p99": 137036.4,
+    "sys_before": {
+      "captured_at_s": 1778914364,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914394,
+      "subscriptions_count": 8
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.381,
+    "gap_stddev_ms": 0.519,
+    "latency_us_min": -76290,
+    "latency_us_max": 159840,
+    "latency_us_avg": 57533.8,
+    "latency_us_p50": 56224.0,
+    "latency_us_p99": 121651.4,
+    "sys_before": {
+      "captured_at_s": 1778914404,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914434,
+      "subscriptions_count": 9
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.395,
+    "gap_stddev_ms": 0.492,
+    "latency_us_min": 25261,
+    "latency_us_max": 2854464,
+    "latency_us_avg": 708975.1,
+    "latency_us_p50": 127194.5,
+    "latency_us_p99": 2752204.9,
+    "sys_before": {
+      "captured_at_s": 1778914434,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914474,
+      "subscriptions_count": 9
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 0,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.395,
+    "gap_stddev_ms": 0.513,
+    "latency_us_min": 29755,
+    "latency_us_max": 216268,
+    "latency_us_avg": 145288.1,
+    "latency_us_p50": 138232.5,
+    "latency_us_p99": 195761.0,
+    "sys_before": {
+      "captured_at_s": 1778914474,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914514,
+      "subscriptions_count": 9
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 922639,
+    "throughput_msg_s": 26360.5,
+    "loss_pct": 82.17,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.006,
+    "gap_stddev_ms": 0.004,
+    "latency_us_min": 79669,
+    "latency_us_max": 2738718,
+    "latency_us_avg": 1789143.8,
+    "latency_us_p50": 1776320.0,
+    "latency_us_p99": 2512885.6,
+    "sys_before": {
+      "captured_at_s": 1778914514,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914554,
+      "subscriptions_count": 12
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 25124,
+    "throughput_msg_s": 717.8,
+    "loss_pct": 99.54,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.005,
+    "gap_stddev_ms": 0.004,
+    "latency_us_min": 63098,
+    "latency_us_max": 807024,
+    "latency_us_avg": 427564.3,
+    "latency_us_p50": 414669.0,
+    "latency_us_p99": 734976.8,
+    "sys_before": {
+      "captured_at_s": 1778914554,
+      "subscriptions_count": 12
+    },
+    "sys_after": {
+      "captured_at_s": 1778914594,
+      "subscriptions_count": 12
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 28196,
+    "throughput_msg_s": 805.6,
+    "loss_pct": 99.44,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.006,
+    "gap_stddev_ms": 0.004,
+    "latency_us_min": 62491,
+    "latency_us_max": 890095,
+    "latency_us_avg": 457518.2,
+    "latency_us_p50": 453024.0,
+    "latency_us_p99": 760513.1,
+    "sys_before": {
+      "captured_at_s": 1778914594,
+      "subscriptions_count": 12
+    },
+    "sys_after": {
+      "captured_at_s": 1778914624,
+      "subscriptions_count": 8
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 35664,
+    "throughput_msg_s": 1018.9,
+    "loss_pct": 99.26,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.006,
+    "gap_stddev_ms": 0.024,
+    "latency_us_min": 38043,
+    "latency_us_max": 3428622,
+    "latency_us_avg": 2194896.5,
+    "latency_us_p50": 2186743.5,
+    "latency_us_p99": 3277352.1,
+    "sys_before": {
+      "captured_at_s": 1778914634,
+      "subscriptions_count": 8
+    },
+    "sys_after": {
+      "captured_at_s": 1778914664,
+      "subscriptions_count": 9
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 18145,
+    "throughput_msg_s": 518.4,
+    "loss_pct": 99.55,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.003,
+    "latency_us_min": -21124,
+    "latency_us_max": 4878205,
+    "latency_us_avg": 877610.1,
+    "latency_us_p50": 694283.0,
+    "latency_us_p99": 4305988.0,
+    "sys_before": {
+      "captured_at_s": 1778914674,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914704,
+      "subscriptions_count": 9
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 17554,
+    "throughput_msg_s": 501.5,
+    "loss_pct": 99.61,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.004,
+    "latency_us_min": 333761,
+    "latency_us_max": 7079489,
+    "latency_us_avg": 828339.0,
+    "latency_us_p50": 550582.5,
+    "latency_us_p99": 6291466.0,
+    "sys_before": {
+      "captured_at_s": 1778914704,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914744,
+      "subscriptions_count": 9
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 9084,
+    "throughput_msg_s": 259.5,
+    "loss_pct": 99.8,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.004,
+    "latency_us_min": -18596,
+    "latency_us_max": 4102163,
+    "latency_us_avg": 2443229.9,
+    "latency_us_p50": 2502965.0,
+    "latency_us_p99": 3855538.6,
+    "sys_before": {
+      "captured_at_s": 1778914744,
+      "subscriptions_count": 9
+    },
+    "sys_after": {
+      "captured_at_s": 1778914784,
+      "subscriptions_count": 10
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 10430,
+    "throughput_msg_s": 298.0,
+    "loss_pct": 99.73,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.03,
+    "latency_us_min": -21718,
+    "latency_us_max": 3033961,
+    "latency_us_avg": 1561986.7,
+    "latency_us_p50": 1489716.0,
+    "latency_us_p99": 2742491.3,
+    "sys_before": {
+      "captured_at_s": 1778914784,
+      "subscriptions_count": 10
+    },
+    "sys_after": {
+      "captured_at_s": 1778914824,
+      "subscriptions_count": 10
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 8436,
+    "throughput_msg_s": 241.0,
+    "loss_pct": 99.76,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.003,
+    "latency_us_min": 16315,
+    "latency_us_max": 3374545,
+    "latency_us_avg": 1991054.2,
+    "latency_us_p50": 1878082.0,
+    "latency_us_p99": 3374095.2,
+    "sys_before": {
+      "captured_at_s": 1778914824,
+      "subscriptions_count": 10
+    },
+    "sys_after": {
+      "captured_at_s": 1778914854,
+      "subscriptions_count": 10
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.512,
+    "gap_stddev_ms": 0.519,
+    "latency_us_min": -19212,
+    "latency_us_max": 336692,
+    "latency_us_avg": 167698.4,
+    "latency_us_p50": 176631.5,
+    "latency_us_p99": 332353.6,
+    "sys_before": {
+      "captured_at_s": 1778914864,
+      "subscriptions_count": 10
+    },
+    "sys_after": {
+      "captured_at_s": 1778914894,
+      "subscriptions_count": 12
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.402,
+    "gap_stddev_ms": 0.517,
+    "latency_us_min": 14775,
+    "latency_us_max": 369064,
+    "latency_us_avg": 197319.8,
+    "latency_us_p50": 206139.0,
+    "latency_us_p99": 361458.8,
+    "sys_before": {
+      "captured_at_s": 1778914904,
+      "subscriptions_count": 12
+    },
+    "sys_after": {
+      "captured_at_s": 1778914934,
+      "subscriptions_count": 12
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.409,
+    "gap_stddev_ms": 0.508,
+    "latency_us_min": 4701,
+    "latency_us_max": 372343,
+    "latency_us_avg": 188070.4,
+    "latency_us_p50": 191651.0,
+    "latency_us_p99": 357217.8,
+    "sys_before": {
+      "captured_at_s": 1778914934,
+      "subscriptions_count": 12
+    },
+    "sys_after": {
+      "captured_at_s": 1778914974,
+      "subscriptions_count": 12
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.63,
+    "gap_stddev_ms": 0.501,
+    "latency_us_min": 46101,
+    "latency_us_max": 632911,
+    "latency_us_avg": 155785.1,
+    "latency_us_p50": 140067.5,
+    "latency_us_p99": 526118.8,
+    "sys_before": {
+      "captured_at_s": 1778914974,
+      "subscriptions_count": 12
+    },
+    "sys_after": {
+      "captured_at_s": 1778915014,
+      "subscriptions_count": 13
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.374,
+    "gap_stddev_ms": 0.518,
+    "latency_us_min": 15944,
+    "latency_us_max": 247767,
+    "latency_us_avg": 103928.0,
+    "latency_us_p50": 109892.0,
+    "latency_us_p99": 136301.2,
+    "sys_before": {
+      "captured_at_s": 1778915014,
+      "subscriptions_count": 13
+    },
+    "sys_after": {
+      "captured_at_s": 1778915054,
+      "subscriptions_count": 13
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.381,
+    "gap_stddev_ms": 0.511,
+    "latency_us_min": 32359,
+    "latency_us_max": 201841,
+    "latency_us_avg": 125218.4,
+    "latency_us_p50": 133553.0,
+    "latency_us_p99": 193831.3,
+    "sys_before": {
+      "captured_at_s": 1778915054,
+      "subscriptions_count": 13
+    },
+    "sys_after": {
+      "captured_at_s": 1778915094,
+      "subscriptions_count": 13
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.38,
+    "gap_stddev_ms": 0.521,
+    "latency_us_min": 4829,
+    "latency_us_max": 197495,
+    "latency_us_avg": 119668.3,
+    "latency_us_p50": 122419.0,
+    "latency_us_p99": 164939.7,
+    "sys_before": {
+      "captured_at_s": 1778915094,
+      "subscriptions_count": 13
+    },
+    "sys_after": {
+      "captured_at_s": 1778915124,
+      "subscriptions_count": 14
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 297,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.304,
+    "gap_stddev_ms": 0.508,
+    "latency_us_min": -21833,
+    "latency_us_max": 161101,
+    "latency_us_avg": 92554.1,
+    "latency_us_p50": 97602.0,
+    "latency_us_p99": 133825.4,
+    "sys_before": {
+      "captured_at_s": 1778915134,
+      "subscriptions_count": 14
+    },
+    "sys_after": {
+      "captured_at_s": 1778915164,
+      "subscriptions_count": 14
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 1,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.386,
+    "gap_stddev_ms": 0.513,
+    "latency_us_min": -11032,
+    "latency_us_max": 177334,
+    "latency_us_avg": 104093.7,
+    "latency_us_p50": 106567.0,
+    "latency_us_p99": 156942.5,
+    "sys_before": {
+      "captured_at_s": 1778915174,
+      "subscriptions_count": 14
+    },
+    "sys_after": {
+      "captured_at_s": 1778915204,
+      "subscriptions_count": 14
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 938668,
+    "throughput_msg_s": 26818.1,
+    "loss_pct": 76.23,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.008,
+    "latency_us_min": 31371,
+    "latency_us_max": 3444753,
+    "latency_us_avg": 2105896.0,
+    "latency_us_p50": 2059987.0,
+    "latency_us_p99": 3273196.3,
+    "sys_before": {
+      "captured_at_s": 1778915204,
+      "subscriptions_count": 14
+    },
+    "sys_after": {
+      "captured_at_s": 1778915244,
+      "subscriptions_count": 17
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 25349,
+    "throughput_msg_s": 724.2,
+    "loss_pct": 99.43,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.008,
+    "latency_us_min": 36692,
+    "latency_us_max": 817634,
+    "latency_us_avg": 480464.8,
+    "latency_us_p50": 483197.0,
+    "latency_us_p99": 808232.5,
+    "sys_before": {
+      "captured_at_s": 1778915244,
+      "subscriptions_count": 17
+    },
+    "sys_after": {
+      "captured_at_s": 1778915284,
+      "subscriptions_count": 17
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 12573,
+    "throughput_msg_s": 359.2,
+    "loss_pct": 99.69,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.008,
+    "latency_us_min": 23417,
+    "latency_us_max": 1602347,
+    "latency_us_avg": 543886.1,
+    "latency_us_p50": 538122.0,
+    "latency_us_p99": 920000.1,
+    "sys_before": {
+      "captured_at_s": 1778915284,
+      "subscriptions_count": 17
+    },
+    "sys_after": {
+      "captured_at_s": 1778915324,
+      "subscriptions_count": 17
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 35161,
+    "throughput_msg_s": 1004.6,
+    "loss_pct": 99.13,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.029,
+    "latency_us_min": 36440,
+    "latency_us_max": 3158662,
+    "latency_us_avg": 2065909.5,
+    "latency_us_p50": 2015848.0,
+    "latency_us_p99": 2917980.4,
+    "sys_before": {
+      "captured_at_s": 1778915324,
+      "subscriptions_count": 17
+    },
+    "sys_after": {
+      "captured_at_s": 1778915354,
+      "subscriptions_count": 18
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 12576,
+    "throughput_msg_s": 359.3,
+    "loss_pct": 99.65,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.006,
+    "latency_us_min": 47798,
+    "latency_us_max": 6906730,
+    "latency_us_avg": 1308220.2,
+    "latency_us_p50": 918168.5,
+    "latency_us_p99": 6516073.3,
+    "sys_before": {
+      "captured_at_s": 1778915364,
+      "subscriptions_count": 18
+    },
+    "sys_after": {
+      "captured_at_s": 1778915394,
+      "subscriptions_count": 18
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 12352,
+    "throughput_msg_s": 352.9,
+    "loss_pct": 99.71,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.008,
+    "latency_us_min": 202,
+    "latency_us_max": 1632017,
+    "latency_us_avg": 548832.8,
+    "latency_us_p50": 511928.0,
+    "latency_us_p99": 1515730.0,
+    "sys_before": {
+      "captured_at_s": 1778915404,
+      "subscriptions_count": 18
+    },
+    "sys_after": {
+      "captured_at_s": 1778915434,
+      "subscriptions_count": 18
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 8714,
+    "throughput_msg_s": 249.0,
+    "loss_pct": 99.76,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.009,
+    "latency_us_min": -20405,
+    "latency_us_max": 3254833,
+    "latency_us_avg": 2283624.8,
+    "latency_us_p50": 2348241.5,
+    "latency_us_p99": 3082432.5,
+    "sys_before": {
+      "captured_at_s": 1778915444,
+      "subscriptions_count": 19
+    },
+    "sys_after": {
+      "captured_at_s": 1778915474,
+      "subscriptions_count": 19
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 11755,
+    "throughput_msg_s": 335.8,
+    "loss_pct": 99.68,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.008,
+    "gap_stddev_ms": 0.009,
+    "latency_us_min": -1694,
+    "latency_us_max": 2877141,
+    "latency_us_avg": 1390330.7,
+    "latency_us_p50": 1292179.0,
+    "latency_us_p99": 2563438.5,
+    "sys_before": {
+      "captured_at_s": 1778915474,
+      "subscriptions_count": 19
+    },
+    "sys_after": {
+      "captured_at_s": 1778915514,
+      "subscriptions_count": 19
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 0,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 5596,
+    "throughput_msg_s": 159.9,
+    "loss_pct": 99.85,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 0.007,
+    "gap_stddev_ms": 0.008,
+    "latency_us_min": 44485,
+    "latency_us_max": 5823405,
+    "latency_us_avg": 1554583.8,
+    "latency_us_p50": 1486397.0,
+    "latency_us_p99": 3657869.6,
+    "sys_before": {
+      "captured_at_s": 1778915514,
+      "subscriptions_count": 19
+    },
+    "sys_after": {
+      "captured_at_s": 1778915554,
+      "subscriptions_count": 19
+    },
+    "done_received": false
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.426,
+    "gap_stddev_ms": 0.497,
+    "latency_us_min": 17068,
+    "latency_us_max": 361045,
+    "latency_us_avg": 185434.7,
+    "latency_us_p50": 190317.5,
+    "latency_us_p99": 353048.5,
+    "sys_before": {
+      "captured_at_s": 1778915554,
+      "subscriptions_count": 19
+    },
+    "sys_after": {
+      "captured_at_s": 1778915594,
+      "subscriptions_count": 21
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.359,
+    "gap_stddev_ms": 0.43,
+    "latency_us_min": -19574,
+    "latency_us_max": 333165,
+    "latency_us_avg": 166553.3,
+    "latency_us_p50": 169154.5,
+    "latency_us_p99": 324487.9,
+    "sys_before": {
+      "captured_at_s": 1778915594,
+      "subscriptions_count": 21
+    },
+    "sys_after": {
+      "captured_at_s": 1778915624,
+      "subscriptions_count": 21
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.373,
+    "gap_stddev_ms": 0.419,
+    "latency_us_min": -7436,
+    "latency_us_max": 324483,
+    "latency_us_avg": 155542.8,
+    "latency_us_p50": 159442.0,
+    "latency_us_p99": 314320.8,
+    "sys_before": {
+      "captured_at_s": 1778915634,
+      "subscriptions_count": 21
+    },
+    "sys_after": {
+      "captured_at_s": 1778915664,
+      "subscriptions_count": 21
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.423,
+    "gap_stddev_ms": 0.449,
+    "latency_us_min": -1166,
+    "latency_us_max": 175263,
+    "latency_us_avg": 115353.8,
+    "latency_us_p50": 120181.0,
+    "latency_us_p99": 156500.1,
+    "sys_before": {
+      "captured_at_s": 1778915674,
+      "subscriptions_count": 22
+    },
+    "sys_after": {
+      "captured_at_s": 1778915704,
+      "subscriptions_count": 22
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.406,
+    "gap_stddev_ms": 0.46,
+    "latency_us_min": -8862,
+    "latency_us_max": 219983,
+    "latency_us_avg": 113806.2,
+    "latency_us_p50": 118720.0,
+    "latency_us_p99": 156306.0,
+    "sys_before": {
+      "captured_at_s": 1778915704,
+      "subscriptions_count": 22
+    },
+    "sys_after": {
+      "captured_at_s": 1778915744,
+      "subscriptions_count": 22
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 1000,
+    "elapsed_s": 35.0,
+    "messages_received": 297,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.345,
+    "gap_stddev_ms": 0.409,
+    "latency_us_min": -8808,
+    "latency_us_max": 187933,
+    "latency_us_avg": 105381.4,
+    "latency_us_p50": 112296.0,
+    "latency_us_p99": 153296.0,
+    "sys_before": {
+      "captured_at_s": 1778915744,
+      "subscriptions_count": 22
+    },
+    "sys_after": {
+      "captured_at_s": 1778915784,
+      "subscriptions_count": 22
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 0,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.375,
+    "gap_stddev_ms": 0.442,
+    "latency_us_min": -27953,
+    "latency_us_max": 231980,
+    "latency_us_avg": 89874.4,
+    "latency_us_p50": 93482.0,
+    "latency_us_p99": 148451.7,
+    "sys_before": {
+      "captured_at_s": 1778915784,
+      "subscriptions_count": 22
+    },
+    "sys_after": {
+      "captured_at_s": 1778915824,
+      "subscriptions_count": 23
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 1,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.395,
+    "gap_stddev_ms": 0.448,
+    "latency_us_min": 6206,
+    "latency_us_max": 147670,
+    "latency_us_avg": 103986.8,
+    "latency_us_p50": 109606.5,
+    "latency_us_p99": 131937.7,
+    "sys_before": {
+      "captured_at_s": 1778915824,
+      "subscriptions_count": 23
+    },
+    "sys_after": {
+      "captured_at_s": 1778915854,
+      "subscriptions_count": 23
+    },
+    "done_received": true
+  },
+  {
+    "pub_qos": 2,
+    "sub_qos": 2,
+    "delay_ms": 100,
+    "msg_size": 4000,
+    "elapsed_s": 35.0,
+    "messages_received": 296,
+    "messages_expected": 300,
+    "throughput_msg_s": 8.5,
+    "loss_pct": 0.0,
+    "out_of_order_pct": 0.0,
+    "duplicate_pct": 0.0,
+    "gap_mean_ms": 101.395,
+    "gap_stddev_ms": 0.425,
+    "latency_us_min": 4161,
+    "latency_us_max": 159840,
+    "latency_us_avg": 87902.2,
+    "latency_us_p50": 96182.5,
+    "latency_us_p99": 128897.5,
+    "sys_before": {
+      "captured_at_s": 1778915864,
+      "subscriptions_count": 23
+    },
+    "sys_after": {
+      "captured_at_s": 1778915894,
+      "subscriptions_count": 23
+    },
     "done_received": true
   }
 ]
