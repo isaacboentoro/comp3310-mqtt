@@ -59,6 +59,7 @@ struct Filters {
     sub_qos:  Option<Vec<u8>>,
     delay_ms: Option<Vec<u64>>,
     msg_size: Option<Vec<usize>>,
+    sys_test: bool,
 }
 
 impl Filters {
@@ -84,6 +85,9 @@ impl Filters {
                     f.msg_size = Some(Self::parse_list(&args, &mut i, "--size",
                         |s| s.parse::<usize>().ok()));
                 }
+                "--sys-test" => {
+                    f.sys_test = true;
+                }
                 "--help" | "-h" => {
                     print!(concat!(
                         "Usage: mqtt-analyser [OPTIONS]\n",
@@ -92,10 +96,12 @@ impl Filters {
                         "  --sub-qos <0,1,2>    Subscriber QoS values to test (default: all)\n",
                         "  --delay   <ms,...>   Publish delay in ms (default: all)\n",
                         "  --size    <b,...>    Message sizes in bytes (default: all)\n",
+                        "  --sys-test           Run $SYS subscription test (QoS 0,1,2)\n",
                         "  -h, --help           Show this help\n",
                         "\nExamples:\n",
                         "  mqtt-analyser --pub-qos 0 --sub-qos 0 --delay 100 --size 1\n",
                         "  mqtt-analyser --delay 0 --size 1\n",
+                        "  mqtt-analyser --sys-test\n",
                     ));
                     std::process::exit(0);
                 }
@@ -138,20 +144,23 @@ impl Filters {
 
 #[derive(Debug, Clone)]
 struct RawMsg {
+    publisher_id: String,
     seq:     u64,
     sent_us: u128,
     recv_us: u128,
 }
 
-fn parse_payload(payload: &[u8]) -> Option<RawMsg> {
+fn parse_payload(payload: &[u8], topic: &str) -> Option<RawMsg> {
     let recv_us = now_us();
+    // Extract publisher_id from last segment of topic: counter/qos/delay/size/publisher_id
+    let publisher_id = topic.rsplit('/').next().unwrap_or("?").to_string();
     // format: {seq}:{sent_us}:{padding…}
     let c1 = payload.iter().position(|&b| b == b':')?;
     let seq = std::str::from_utf8(&payload[..c1]).ok()?.parse::<u64>().ok()?;
     let rest = &payload[c1 + 1..];
     let c2 = rest.iter().position(|&b| b == b':')?;
     let sent_us = std::str::from_utf8(&rest[..c2]).ok()?.parse::<u128>().ok()?;
-    Some(RawMsg { seq, sent_us, recv_us })
+    Some(RawMsg { publisher_id, seq, sent_us, recv_us })
 }
 
 // ── $SYS snapshot ─────────────────────────────────────────────────────────
@@ -217,6 +226,21 @@ impl SysSnapshot {
 // ── per-test result ────────────────────────────────────────────────────────
 
 #[derive(Debug, Clone, Serialize)]
+struct PublisherStats {
+    publisher_id:      String,
+    messages_received: usize,
+    throughput_msg_s:  f64,
+    loss_pct:          f64,
+    out_of_order_pct:  f64,
+    duplicate_pct:     f64,
+    #[serde(skip_serializing_if = "Option::is_none")] latency_us_min: Option<i64>,
+    #[serde(skip_serializing_if = "Option::is_none")] latency_us_max: Option<i64>,
+    #[serde(skip_serializing_if = "Option::is_none")] latency_us_avg: Option<f64>,
+    #[serde(skip_serializing_if = "Option::is_none")] latency_us_p50: Option<f64>,
+    #[serde(skip_serializing_if = "Option::is_none")] latency_us_p99: Option<f64>,
+}
+
+#[derive(Debug, Clone, Serialize)]
 struct TestResult {
     pub_qos:  u8,
     sub_qos:  u8,
@@ -249,6 +273,10 @@ struct TestResult {
     // $SYS correlation
     #[serde(skip_serializing_if = "Option::is_none")] sys_before: Option<SysSnapshot>,
     #[serde(skip_serializing_if = "Option::is_none")] sys_after:  Option<SysSnapshot>,
+
+    // per-publisher breakdown
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    publisher_stats: Vec<PublisherStats>,
 
     done_received: bool,
 }
@@ -443,7 +471,7 @@ impl Analyser {
                                     continue;
                                 }
                                 if p.topic.as_bytes().starts_with(b"counter/") {
-                                    if let Some(msg) = parse_payload(&p.payload) {
+                                    if let Some(msg) = parse_payload(&p.payload, &p.topic) {
                                         batch.push(msg);
                                         if batch.len() >= BATCH {
                                             let full = std::mem::replace(&mut batch, Vec::with_capacity(BATCH));
@@ -465,7 +493,7 @@ impl Analyser {
         });
 
         // ── subscribe and wait for confirmation ──────────────────────────
-        let counter_topic = format!("counter/{pub_qos}/{delay_ms}/{msg_size}");
+        let counter_topic = format!("counter/{pub_qos}/{delay_ms}/{msg_size}/#");
         let _ = client.subscribe(&counter_topic, to_qos(sub_qos)).await;
         let _ = client.subscribe("request/go",   to_qos(sub_qos)).await;
 
@@ -532,6 +560,39 @@ impl Analyser {
              gap_mean_ms, gap_stddev_ms,
              lat_min, lat_max, lat_avg, lat_p50, lat_p99) = compute_stats(&messages);
 
+        // ── per-publisher breakdown ──────────────────────────────────────
+        let mut pub_map: std::collections::HashMap<String, Vec<RawMsg>> = std::collections::HashMap::new();
+        for m in &messages {
+            pub_map.entry(m.publisher_id.clone()).or_default().push(m.clone());
+        }
+        let mut pub_ids: Vec<String> = pub_map.keys().cloned().collect();
+        pub_ids.sort();
+
+        let mut publisher_stats: Vec<PublisherStats> = Vec::new();
+        for pid in &pub_ids {
+            let pmsgs = &pub_map[pid];
+            let pn = pmsgs.len();
+            let (p_loss, p_ooo, p_dup,
+                 _pgap_m, _pgap_s,
+                 p_lat_min, p_lat_max, p_lat_avg, p_lat_p50, p_lat_p99) = compute_stats(pmsgs);
+
+            publisher_stats.push(PublisherStats {
+                publisher_id: pid.clone(),
+                messages_received: pn,
+                throughput_msg_s: if elapsed > 0.0 && pn > 0 {
+                    ((pn as f64 / elapsed) * 10.0).round() / 10.0
+                } else { 0.0 },
+                loss_pct: p_loss,
+                out_of_order_pct: p_ooo,
+                duplicate_pct: p_dup,
+                latency_us_min: p_lat_min,
+                latency_us_max: p_lat_max,
+                latency_us_avg: p_lat_avg,
+                latency_us_p50: p_lat_p50,
+                latency_us_p99: p_lat_p99,
+            });
+        }
+
         TestResult {
             pub_qos, sub_qos, delay_ms, msg_size,
             elapsed_s: (elapsed * 100.0).round() / 100.0,
@@ -550,6 +611,7 @@ impl Analyser {
             latency_us_p99: lat_p99,
             sys_before: Some(sys_before),
             sys_after:  Some(sys_after),
+            publisher_stats,
             done_received,
         }
     }
@@ -589,6 +651,15 @@ impl Analyser {
                 r.gap_stddev_ms.map_or("N/A".into(), |v| format!("{v:.3}")),
                 r.latency_us_avg,
             );
+            for ps in &r.publisher_stats {
+                println!(
+                    "    └─ p-{id}: {n} msgs  {tput:.0}/s  loss={loss:.2}%  \
+                     ooo={ooo:.2}%  dup={dup:.2}%  lat_avg={lat:?}µs  lat_p99={p99:?}µs",
+                    id = ps.publisher_id, n = ps.messages_received, tput = ps.throughput_msg_s,
+                    loss = ps.loss_pct, ooo = ps.out_of_order_pct, dup = ps.duplicate_pct,
+                    lat = ps.latency_us_avg, p99 = ps.latency_us_p99,
+                );
+            }
 
             results.push(r);
             if idx + 1 < total { sleep(Duration::from_secs(1)).await; }
@@ -627,6 +698,99 @@ fn print_summary(results: &[TestResult]) {
     println!("{sep}");
 }
 
+// ── $SYS QoS handshake test ────────────────────────────────────────────────
+//
+// Subscribes to $SYS/# at each QoS level (0, 1, 2) in sequence so you can
+// capture the SUBSCRIBE/SUBACK handshake in Wireshark for each QoS level
+// independently. Filter: mqtt
+
+async fn run_sys_test(host: &str, port: u16) {
+    let qos_levels: [(u8, QoS, &str); 3] = [
+        (0, QoS::AtMostOnce,  "QoS 0 – At most once"),
+        (1, QoS::AtLeastOnce, "QoS 1 – At least once"),
+        (2, QoS::ExactlyOnce, "QoS 2 – Exactly once"),
+    ];
+
+    let divider = "=".repeat(70);
+
+    for (qos_val, qos, label) in &qos_levels {
+        println!("\n{divider}");
+        println!("  >>> {label}  [filter Wireshark: mqtt]");
+        println!("{divider}");
+
+        let client_id = format!("sys-test-qos{qos_val}");
+        let mut opts = MqttOptions::new(&client_id, host, port);
+        opts.set_keep_alive(Duration::from_secs(30));
+        opts.set_clean_session(true);
+
+        let (client, mut eventloop) = AsyncClient::new(opts, 256);
+
+        println!("  Subscribing to $SYS/# with QoS={qos_val} …");
+        if let Err(e) = client.subscribe("$SYS/#", *qos).await {
+            eprintln!("  ❌ Subscribe failed: {e}");
+            continue;
+        }
+
+        // Wait for SubAck
+        let suback = timeout(Duration::from_secs(5), async {
+            loop {
+                match eventloop.poll().await {
+                    Ok(Event::Incoming(Packet::SubAck(_))) => break,
+                    Ok(_) => {}
+                    Err(e) => { eprintln!("  ❌ EventLoop error: {e}"); break; }
+                }
+            }
+        }).await;
+
+        if suback.is_err() {
+            eprintln!("  ⚠  SubAck timeout (broker may not support $SYS)");
+        } else {
+            println!("  ✅ SubAck received");
+        }
+
+        // Collect $SYS messages for a few seconds
+        println!("  Collecting $SYS messages (5 s) …\n");
+        let deadline = Instant::now() + Duration::from_secs(5);
+        let mut sys_msgs: Vec<(String, String)> = Vec::new();
+
+        loop {
+            let remain = deadline.saturating_duration_since(Instant::now());
+            if remain.is_zero() { break; }
+
+            match timeout(remain, eventloop.poll()).await {
+                Ok(Ok(Event::Incoming(Packet::Publish(p)))) => {
+                    let topic = p.topic.clone();
+                    let value = String::from_utf8_lossy(&p.payload).trim().to_string();
+                    println!("    {topic} = {value}");
+                    sys_msgs.push((topic, value));
+                }
+                Ok(Ok(_)) => {}
+                Ok(Err(e)) => {
+                    if !e.to_string().contains("Timeout") {
+                        eprintln!("  ⚠  EventLoop: {e}");
+                    }
+                    break;
+                }
+                Err(_) => break, // timeout
+            }
+        }
+
+        println!("\n  Received {} $SYS messages at {label}", sys_msgs.len());
+        let _ = client.unsubscribe("$SYS/#").await;
+        drop(client);
+
+        if qos_val != &2 {
+            println!("\n  ⏳  3-second pause — prepare next Wireshark capture …");
+            sleep(Duration::from_secs(3)).await;
+        }
+    }
+
+    println!("\n{divider}");
+    println!("  $SYS handshake test complete. Each QoS-level handshake");
+    println!("  (SUBSCRIBE → SUBACK → PUBLISH) was logged above.");
+    println!("{divider}");
+}
+
 // ── main ───────────────────────────────────────────────────────────────────
 
 #[tokio::main]
@@ -638,6 +802,12 @@ async fn main() {
     let port    = broker_port();
 
     println!("Connecting to MQTT broker at {host}:{port}");
+
+    // ── $SYS handshake test mode ────────────────────────────────────────
+    if filters.sys_test {
+        run_sys_test(&host, port).await;
+        return;
+    }
 
     let sys_shared  = Arc::new(Mutex::new(SysSnapshot::default()));
     let _sys_handle = spawn_sys_monitor(host.clone(), port, sys_shared.clone());

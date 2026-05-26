@@ -1,4 +1,5 @@
 use rumqttc::{AsyncClient, Event, MqttOptions, Packet, QoS};
+use std::env;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use tokio::sync::mpsc;
 use tokio::time::Instant;
@@ -7,6 +8,7 @@ use tokio::time::Instant;
 
 #[derive(Debug, Clone)]
 struct RunConfig {
+    publisher_id: String,
     qos: u8,
     delay_ms: u64,
     message_size: usize,
@@ -14,7 +16,7 @@ struct RunConfig {
 
 impl Default for RunConfig {
     fn default() -> Self {
-        RunConfig { qos: 0, delay_ms:0, message_size :1 }
+        RunConfig { publisher_id: "0".into(), qos: 0, delay_ms:0, message_size :1 }
     }
 }
 
@@ -35,7 +37,18 @@ fn now_us() -> u128 {
 // entry point
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut opts = MqttOptions::new("rust-publisher", "localhost", 1883);
+    // Parse --id argument (default "0")
+    let args: Vec<String> = env::args().collect();
+    let publisher_id = args.iter()
+        .position(|a| a == "--id")
+        .and_then(|i| args.get(i + 1).cloned())
+        .unwrap_or_else(|| "0".into());
+
+    let client_id = format!("rust-publisher-{publisher_id}");
+    let host = env::var("MQTT_HOST").unwrap_or_else(|_| "localhost".into());
+    let port: u16 = env::var("MQTT_PORT").ok().and_then(|v| v.parse().ok()).unwrap_or(1883);
+
+    let mut opts = MqttOptions::new(&client_id, &host, port);
     opts.set_keep_alive(Duration::from_secs(30));
 
     // Large channel to avoid blocking waiting for eventloop
@@ -68,11 +81,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         client.subscribe(topic, QoS::AtLeastOnce).await?;
     }
 
-    println!("[publisher] ready, waiting for request/# configuration...");
+    println!("[publisher-{publisher_id}] ready, waiting for request/# configuration...");
 
     // main eventloop (listen, configure, publish, repeat)
 
     let mut cfg = RunConfig::default();
+    cfg.publisher_id = publisher_id.clone();
     loop {
         let (topic, payload) = match msg_rx.recv().await {
             Some(m) => m,
@@ -82,17 +96,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         match topic.as_str() {
             "request/qos" => {
                 cfg.qos = payload.trim().parse::<u8>().unwrap_or(0).min(2);
-                println!("[config] qos = {}", cfg.qos);
+                println!("[p-{id}] qos = {}", cfg.qos, id = cfg.publisher_id);
             }
 
             "request/delay" => {
                 cfg.delay_ms = payload.trim().parse::<u64>().unwrap_or(0);
-                println!("[config] delay_ms = {}", cfg.delay_ms);
+                println!("[p-{id}] delay_ms = {}", cfg.delay_ms, id = cfg.publisher_id);
             }
 
             "request/messagesize" => {
                 cfg.message_size = payload.trim().parse::<usize>().unwrap_or(1);
-                println!("[config] message_size = {}" , cfg.message_size);
+                println!("[p-{id}] message_size = {}" , cfg.message_size, id = cfg.publisher_id);
             }
 
             // start, 30s burst then signal done 
@@ -103,7 +117,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 //signal to analyzer 
                 client.publish("request/go", QoS::AtLeastOnce, false, "done").await?;
 
-                println!("[publisher] sent 'done', back to listening...\n");
+                println!("[p-{id}] sent 'done', back to listening...\n", id = cfg.publisher_id);
             }
 
             "request/go" => {}
@@ -121,14 +135,14 @@ async fn run_publish_burst(
     client: &AsyncClient,
     cfg:&RunConfig,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let pub_topic = format!("counter/{}/{}/{}", cfg.qos, cfg.delay_ms, cfg.message_size);
+    let pub_topic = format!("counter/{}/{}/{}/{}", cfg.qos, cfg.delay_ms, cfg.message_size, cfg.publisher_id);
     let qos = to_qos(cfg.qos);
     let padding = "x".repeat(cfg.message_size);
     let delay = (cfg.delay_ms > 0).then(|| Duration::from_millis(cfg.delay_ms));
 
     println!(
-        "[publish] starting 30s burst, topic='{}' | qos = {} | delay ={:?} | size= {}",
-        pub_topic, cfg.qos, delay, cfg.message_size
+        "[p-{id}] starting 30s burst, topic='{topic}' | qos = {qos} | delay ={delay:?} | size= {size}",
+        id = cfg.publisher_id, topic = pub_topic, qos = cfg.qos, delay = delay, size = cfg.message_size
     );
 
     let deadline = Instant::now() + Duration::from_secs(30);
@@ -146,6 +160,6 @@ async fn run_publish_burst(
         }
     }
 
-    println!("[publish] finished, sent {counter} messages");
+    println!("[p-{id}] finished, sent {counter} messages", id = cfg.publisher_id);
     Ok(())
 }
